@@ -1,0 +1,60 @@
+{
+  "name": "vuex-scaffold",
+  "version": "0.0.0",
+  "description": "Scaffolding methods to compose your vuex store",
+  "main": "dist/vuex-scaffold.js",
+  "module": "dist/vuex-scaffold.es.js",
+  "scripts": {
+    "test": "ava",
+    "debug": "inspect node_modules/ava/profile",
+    "coverage": "nyc --reporter=html yarn test",
+    "build": "rm -rf dist && cross-env NODE_ENV=production rollup -c",
+    "lint": "eslint src",
+    "prepublish": "yarn build"
+  },
+  "ava": {
+    "files": [
+      "**/*.test.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "require": [
+      "./spec/hooks.js"
+    ],
+    "concurrency": 8
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackmellis/vuex-scaffold.git"
+  },
+  "author": "Jack Ellis",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jackmellis/vuex-scaffold/issues"
+  },
+  "homepage": "https://github.com/jackmellis/vuex-scaffold#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-env": "^3.2.5",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.11.0",
+    "inspect-process": "^0.5.0",
+    "nyc": "^11.6.0",
+    "require-extension-hooks": "^0.3.2",
+    "require-extension-hooks-babel": "^0.1.1",
+    "rollup": "^0.57.1",
+    "rollup-plugin-babel": "^3.0.3",
+    "sinon": "^4.5.0",
+    "vue": "^2.5.16",
+    "vuex": "^3.0.1"
+  },
+  "dependencies": {
+    "curry": "^1.2.0"
+  }
+}
