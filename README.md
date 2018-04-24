@@ -52,6 +52,44 @@ const fetch = createAction(
 fetch(4, res, rej)
 ```
 
+## createDispatch
+```js
+(
+  type: string,
+  payloadCreator?: Function,
+  metaCreator?: Function,
+  store?: Object,
+) => (...args) => Promise
+```
+Similar to `createAction` expect it also expects a `store` object. When you all the action it will automatically dispatch it as well.
+
+```js
+const fetch = createDispatch('fetch', (x) => x, store);
+
+fetch('x').then(...);
+```
+
+Store is a curried parameter, meaning if you don't pass it in, it will return a function that takes the store. Meaning you can do something like this:
+```js
+const fetch = createDispatch('fetch');
+
+// later
+const dispatcher = fetch(store);
+// later still
+dispatcher().then(...);
+```
+
+## createCommit
+```js
+(
+  type: string,
+  payloadCreator?: Function,
+  metaCreator?: Function,
+  store?: Object,
+) => (...args) => void
+```
+Similar to `createDispatch` but for triggering a commit.
+
 ## combineActions
 ```js
 (...actions: Array<Object>) => Object
