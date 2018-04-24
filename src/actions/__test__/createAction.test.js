@@ -25,6 +25,12 @@ test('sets the payload', t => {
   t.is(result.payload.x, 'zzz');
 });
 
+test('when no payloadCreator provided, uses the provided data', t => {
+  const result = createAction('FOO')('zzz');
+
+  t.is(result.payload, 'zzz');
+});
+
 test('sets meta data', t => {
   const result = createAction(
     'FOO',
