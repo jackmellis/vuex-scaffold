@@ -1,9 +1,9 @@
 import { isBoolean } from '../utils';
-import combineActions from './actions';
-import combineMutations from './mutations';
+import { combineActionArray } from './actions';
+import { combineMutationArray } from './mutations';
 import combineArray from './array';
 
-const combineModules = (...args) => {
+export const combineModuleArray = (args) => {
   let deep = false;
   if (isBoolean(args[args.length - 1])) {
     deep = args[args.length - 1];
@@ -20,8 +20,8 @@ const combineModules = (...args) => {
 
   result.state = combineArray(states);
   result.getters = combineArray(getters);
-  result.mutations = combineMutations.apply(null, mutations);
-  result.actions = combineActions.apply(null, actions);
+  result.mutations = combineMutationArray(mutations);
+  result.actions = combineActionArray(actions);
 
   if (deep) {
     result.modules = {};
@@ -40,10 +40,9 @@ const combineModules = (...args) => {
         result.modules[key] = combineModules.apply(null, value.concat(true));
       }
     });
-    // result.modules = combineModules.apply(null, modules.concat(true));
   }
 
   return result;
 };
 
-export default combineModules;
+export const combineModules = (...args) => combineModuleArray(args);

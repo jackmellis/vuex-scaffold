@@ -1,6 +1,6 @@
 {
   "name": "vuex-scaffold",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Scaffolding methods to compose your vuex store",
   "main": "dist/vuex-scaffold.js",
   "module": "dist/vuex-scaffold.es.js",

@@ -2,7 +2,7 @@
 Scaffolding methods to compose your Vuex store
 
 ## createAction
-```
+```js
 (
   type: string,
   payloadCreator?: Function,
@@ -32,7 +32,7 @@ store.dispatch(action);
 ```
 
 ## createPayload
-```
+```js
 (
   keys: Array<string>,
   offset?: number,
@@ -53,10 +53,8 @@ fetch(4, res, rej)
 ```
 
 ## combineActions
-```
-(
-  ...actions: Array<Object>
-) => Object
+```js
+(...actions: Array<Object>) => Object
 ```
 Takes a number of objects that contain actions and combines them. Any same-keyed actions are run together.
 
@@ -75,11 +73,15 @@ store.dispatch('fetch');
 // will dispatch both fetch actions
 ```
 
-## combineMutations
+## combineActionArray
+```js
+(actions: Array<Object>) => Object
 ```
-(
-  ...mutations: Array<Object>
-) => Object
+An array version of `combineActions`.
+
+## combineMutations
+```js
+(...mutations: Array<Object>) => Object
 ```
 Takes a number of objects that contain mutations and combines them. Any same-keyed mutations are run together.
 
@@ -98,19 +100,27 @@ store.dispatch('FETCH');
 // will dispatch both fetch mutations
 ```
 
-## combineModules
+## combineMutationArray
+```js
+(mutations: Array<Object) => Object
 ```
-(
-  ...modules: Array<Object>
-) => Object
+An array version of `combineMutations`
+
+## combineModules
+```js
+(...modules: Array<Object>) => Object
 ```
 Takes a number of modules and combines them.
 
-## mapToCommit
+## combineModuleArray
+```js
+(modules: Array<Object>) => Object
 ```
-(
-  key: string,
-) => Function
+An array version of `combineModules`
+
+## mapToCommit
+```js
+(key: string) => Function
 ```
 Takes the key of a mutation and automatically commits it when the specified action is caled.
 
@@ -121,7 +131,7 @@ const actions = {
 ```
 
 ## filter
-```
+```js
 (
   predicate: (...args) => boolean,
   fn: (...args) => any,
@@ -147,10 +157,8 @@ const actions = {
 ```
 
 ## dispatchCommits
-```
-(
-  module: Object,
-)
+```js
+(module: Object) => Object
 ```
 takes all mutations in a module and creates an action for each one.
 

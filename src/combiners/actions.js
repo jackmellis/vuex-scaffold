@@ -1,4 +1,4 @@
-export default (...args) => {
+export const combineActionArray = (args) => {
   const result = {};
 
   args.filter(Boolean).forEach((arg) => {
@@ -18,3 +18,5 @@ export default (...args) => {
 
   return result;
 };
+
+export const combineActions = (...args) => combineActionArray(args);

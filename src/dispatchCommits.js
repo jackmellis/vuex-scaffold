@@ -1,5 +1,5 @@
 import mapToCommit from './maps/toCommit';
-import combineActions from './combiners/actions';
+import { combineActions } from './combiners/actions';
 
 export default (module) => {
   const actions = {};

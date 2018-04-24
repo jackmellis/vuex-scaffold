@@ -1,4 +1,4 @@
-export default (...args) => {
+export const combineMutationArray = (args) => {
   const result = {};
 
   args.filter(Boolean).forEach((arg) => {
@@ -16,3 +16,5 @@ export default (...args) => {
 
   return result;
 };
+
+export const combineMutations = (...args) => combineMutationArray(args);

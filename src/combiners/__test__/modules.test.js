@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import Vue from 'vue';
 import vuex from 'vuex';
 
-import combineModules from '../modules';
+import { combineModules } from '../modules';
 
 Vue.use(vuex);
 

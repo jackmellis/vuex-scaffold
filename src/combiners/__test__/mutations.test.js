@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import Vue from 'vue';
 import vuex from 'vuex';
 
-import combineMutations from '../mutations';
+import { combineMutations } from '../mutations';
 
 Vue.use(vuex);
 
